@@ -1,0 +1,66 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+
+#IMPORT LIBRARIES
+
+#Install the follow libraries
+# https://rdrr.io/cran/Metrics/
+# https://cran.r-project.org/web/packages/Metrics/Metrics.pdf
+library(Metrics)
+
+
+# https://rdrr.io/cran/topmodel/man/NSeff.html
+library(topmodel)
+
+
+```
+
+```{r}
+# See how to import CSV to dataframe R
+
+# file can be into the same folder of this script
+df <- read.csv("SampleData.csv", header = TRUE, sep = ",")
+
+
+
+```
+
+```{r}
+#Calculate pbias
+
+library(Metrics)
+actual <- c(1.1, 1.9, 3.0, 4.4, 5.0, 5.6)
+predicted <- c(0.9, 1.8, 2.5, 4.5, 5.0, 6.2)
+percent_bias(actual, predicted)
+
+```
+```{r}
+#Calculate MAE
+# https://cran.r-project.org/web/packages/Metrics/Metrics.pdf
+library(Metrics)
+actual <- c(1.1, 1.9, 3.0, 4.4, 5.0, 5.6)
+predicted <- c(0.9, 1.8, 2.5, 4.5, 5.0, 6.2)
+mae(actual, predicted)
+
+```
+
+```{r}
+#Calculate sd (r^2)
+library(Metrics)
+actual <- c(1.1, 1.9, 3.0, 4.4, 5.0, 5.6)
+predicted <- c(0.9, 1.8, 2.5, 4.5, 5.0, 6.2)
+se(actual, predicted)
+
+```
+```{r}
+library(topmodel)
+actual <- c(1.1, 1.9, 3.0, 4.4, 5.0, 5.6)
+predicted <- c(0.9, 1.8, 2.5, 4.5, 5.0, 6.2)
+NSeff(actual, predicted)
+
+```
+
